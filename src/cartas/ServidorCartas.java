@@ -28,8 +28,8 @@ public class ServidorCartas {
 				System.out.println("Cliente conectado");
 				
 				Thread a = new Thread(new HiloServidor(socket,baraja));//CREO THREAD
-				a.start();//EJECUTO THREAD	
-			}//FIN_WHILE								
+				a.start();//EJECUTO THREAD
+			}//FIN_WHILE
 		}//FIN_TRY
 		catch(Exception ex){
 			System.out.println("Error: " + ex.getMessage());
