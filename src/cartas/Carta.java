@@ -3,11 +3,14 @@
 */
 package cartas;
 
+import java.io.Serializable;
+
 /**
 * @author @leoacal
 */
-public class Carta {
+public class Carta implements Serializable {
     // Atributos
+	private static final long serialVersionUID = 42L;
     private char baraja;
     private int numero;
     private String palo;
@@ -18,7 +21,7 @@ public class Carta {
     * @param numero Ordinal de la carta
     * @param palo Palo al que pertenece 
     */
-    public Carta( char baraja, int numero, String palo) {
+    public Carta(char baraja, int numero, String palo) {
         this.baraja = baraja;
         this.numero = numero;
         this.palo = palo;
