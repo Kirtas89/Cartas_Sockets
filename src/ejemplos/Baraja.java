@@ -35,7 +35,7 @@ public class Baraja {
 		return palos;
 	}
 	
-	public void rellenaBaraja() {
+	private void rellenaBaraja() {
 		palos = new ArrayList<>();
 		palos.add("Oros");
 		palos.add("Bastos");
@@ -79,5 +79,17 @@ public class Baraja {
 		Carta carta = new Carta(tipoBaraja,numeroCarta,paloCarta);
 		
 		return carta;
+	}
+	
+	/** void jugadoresEnEspera()
+	 * 
+	 *  Comentario: Metodo para poner a los jugadores en espera
+	 */
+	public synchronized void jugadoresEnEspera() {
+		try {
+			wait();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }
