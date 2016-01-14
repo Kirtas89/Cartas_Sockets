@@ -8,6 +8,8 @@ import java.net.Socket;
 public class HiloServidor implements Runnable {
 
     protected Socket clientSocket = null;
+    protected OutputStream socketOS = null;
+    protected ObjectOutputStream socketOOS = null;
     private Baraja baraja;
 
     public HiloServidor(Socket clientSocket, Baraja baraja) {
@@ -15,16 +17,11 @@ public class HiloServidor implements Runnable {
         this.baraja = baraja;
     }
 
-    public void run() { 
-    	OutputStream socketOS = null;
-    	//InputStream socketIS = null;
+    public void run() {
 		try {
 			//Abro stream de salida	    	
 			socketOS = clientSocket.getOutputStream();
-			ObjectOutputStream socketOOS = new ObjectOutputStream(socketOS);
-	    	//Abro stream de entrada
-	    	//socketIS = clientSocket.getInputStream();    	
-	    	//ObjectInputStream socketOIS = new ObjectInputStream(socketIS);
+			socketOOS = new ObjectOutputStream(socketOS);
 	    	//Envio una carta
 	    	socketOOS.writeObject(baraja.darCarta());
 		} catch (IOException e) {			
@@ -35,13 +32,7 @@ public class HiloServidor implements Runnable {
 			} catch (IOException e) {
 				System.out.println("Error al cerrar el stream de salida");
 				//e.printStackTrace();
-			}
-			//try {
-			//	socketIS.close();
-			//} catch (IOException e) {
-			//	System.out.println("Error al cerrar el stream de entrada");
-				//e.printStackTrace();
-			//}			
+			}	
 		}
     }
 }
