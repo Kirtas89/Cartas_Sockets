@@ -1,4 +1,4 @@
-package cartas;
+package ejemplos;
 
 import java.net.Socket;
 

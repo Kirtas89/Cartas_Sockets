@@ -1,4 +1,4 @@
-package cartas;
+package ejemplos;
 
 public class ConductorServidor {
 

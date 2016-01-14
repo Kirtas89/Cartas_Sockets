@@ -1,4 +1,4 @@
-package cartas;
+package ejemplos;
 
 /*
  * tipo:		Básica		-		char				-		Consultable
