@@ -10,10 +10,11 @@ public class Jugador implements Runnable {
 	protected Socket clientSocket = null;
     protected InputStream clienteIS = null;
     protected ObjectInputStream clienteOIS = null;
-    private Carta miCarta;
+    private Carta miCarta;    
     
     public void run() {    	
     	try {
+    		clientSocket = new Socket("127.0.0.1",5000);
     		clienteIS = clientSocket.getInputStream();
 			clienteOIS = new ObjectInputStream(clienteIS);
 			
